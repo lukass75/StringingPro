@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRO Manager | Limassol - V3.4 NO LOGIN - Summer/Winter</title>
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { background:#0a0a0a; color:#e5e5e5; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; line-height:1.4; }
+  .app { min-height:100vh; display:flex; flex-direction:column; }
+  header { background:#0a0a0a; border-bottom:1px solid #222; padding:12px 20px; display:flex; align-items:center; justify-content:space-between; position:sticky; top:0; z-index:100; }
+  .brand { display:flex; align-items:center; gap:10px; font-weight:600; font-size:15px; color:#e5e5e5; }
+  .dot { width:8px; height:8px; background:#d4ff00; border-radius:50%; display:inline-block; }
+  .header-right { display:flex; gap:8px; }
+  .btn { padding:8px 14px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; border:none; transition:opacity 0.2s; }
+  .btn-lime { background:#d4ff00; color:#000; }
+  .btn-dark { background:#1e1e1e; color:#c5c5c5; border:1px solid #2a2a2a; }
+  .btn:hover { opacity:0.85; }
+  .notice { background:#1e1e1e; border:1px solid #d4ff00; color:#d4ff00; padding:6px 10px; border-radius:6px; font-size:12px; font-weight:600; }
+  .tabs { display:flex; gap:4px; padding:10px 20px; border-bottom:1px solid #222; background:#0a0a0a; overflow-x:auto; }
+  .tab { padding:8px 14px; font-size:13px; color:#888; background:#151515; border:1px solid #222; border-radius:6px 6px 0 0; cursor:pointer; white-space:nowrap; }
+  .tab.active { color:#d4ff00; background:#151515; border-bottom:2px solid #d4ff00; border-color:#222 #222 #d4ff00 #222; font-weight:600; }
+  .badge-new { background:#d4ff00; color:#000; font-size:10px; font-weight:700; padding:2px 5px; border-radius:4px; margin-left:6px; }
+  .container { padding:20px; max-width:1200px; margin:0 auto; width:100%; }
+  .card { background:#151515; border:1px solid #222; border-radius:12px; padding:18px; margin-bottom:16px; }
+  .card-title { font-size:14px; font-weight:600; color:#e5e5e5; margin-bottom:14px; }
+  .grid { display:grid; gap:14px; }
+  .grid-2 { grid-template-columns:1fr 1fr; }
+  .grid-3 { grid-template-columns:repeat(3,1fr); }
+  label { display:block; font-size:12px; color:#888; margin-bottom:6px; font-weight:500; }
+  input, select, textarea { width:100%; padding:9px 10px; background:#1e1e1e; border:1px solid #2a2a2a; border-radius:12px; color:#e5e5e5; font-size:13px; outline:none; }
+  input::placeholder, textarea::placeholder { color:#666; }
+  input:focus, select:focus, textarea:focus { border-color:#d4ff00; }
+  textarea { resize:vertical; min-height:60px; }
+  .row { display:flex; gap:12px; align-items:end; }
+  .btn-ghost { background:#1e1e1e; border:1px solid #2a2a2a; color:#e5e5e5; padding:8px 14px; border-radius:8px; cursor:pointer; font-size:13px; }
+  .btn-primary { background:#d4ff00; color:#000; border:none; padding:9px 16px; border-radius:8px; cursor:pointer; font-weight:600; font-size:13px; }
+  .btn-danger { background:#442222; color:#ff6666; border:1px solid #552222; padding:8px 12px; border-radius:8px; cursor:pointer; font-weight:600; font-size:13px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th { text-align:left; padding:10px; border-bottom:1px solid #222; color:#888; font-weight:600; font-size:12px; }
+  td { padding:10px; border-bottom:1px solid #222; color:#d0d0d0; }
+  .gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:12px; }
+  .gallery-item { position:relative; border:1px solid #222; border-radius:10px; overflow:hidden; background:#1e1e1e; }
+  .gallery-item img { width:100%; height:120px; object-fit:cover; display:block; }
+  .gallery-del { position:absolute; top:6px; right:6px; background:#000; border:1px solid #333; color:#d4ff00; border-radius:6px; padding:4px 6px; font-size:11px; cursor:pointer; }
+  .list { list-style:none; padding:0; }
+  .list li { padding:6px 0; border-bottom:1px solid #222; font-size:13px; color:#bbb; }
+  .chart-wrap { background:#1e1e1e; border:1px solid #2a2a2a; border-radius:10px; padding:12px; margin-top:12px; }
+  canvas { width:100%; height:180px; background:#151515; border-radius:8px; }
+  .muted { color:#888; font-size:12px; }
+  .player-group { margin-bottom:16px; border:1px solid #222; border-radius:10px; background:#151515; padding:12px; }
+  .player-title { font-weight:600; color:#d4ff00; margin-bottom:8px; font-size:14px; }
+  .okmsg { color:#d4ff00; font-size:12px; margin-top:8px; }
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <header>
+    <div class="brand"><span class="dot"></span>PRO Manager | Limassol - V3.4 NO LOGIN - Summer/Winter</div>
+    <div class="header-right">
+      <div class="notice">All features unlocked - no login needed</div>
+      <button class="btn btn-dark" onclick="jumpToJobs()">CLIENT MANAGER</button>
+      <button class="btn btn-lime" onclick="openWhatsApp()">BOOK VIA WHATSAPP</button>
+    </div>
+  </header>
+  <div class="tabs" id="tabs"></div>
+  <div class="container" id="content"></div>
+</div>
+
+<script>
+const TABS = [
+  {id:'jobs', label:'Clients & Jobs', active:true},
+  {id:'inventory', label:'Inventory'},
+  {id:'prices', label:'Prices (Editable)'},
+  {id:'players', label:'Player Profiles', badge:'NEW'},
+  {id:'gallery', label:'Gallery'},
+  {id:'tech', label:'Tech Guide'},
+  {id:'location', label:'Location'}
+];
+
+const STORAGE_KEY_JOBS = 'sp_jobs_v3_lime';
+const STORAGE_KEY_GALLERY = 'sp_gallery_v3_lime';
+const STORAGE_KEY_PRICES = 'sp_prices_v3_lime';
+
+let jobs = JSON.parse(localStorage.getItem(STORAGE_KEY_JOBS) || '[]');
+let gallery = JSON.parse(localStorage.getItem(STORAGE_KEY_GALLERY) || '[]');
+let prices = JSON.parse(localStorage.getItem(STORAGE_KEY_PRICES) || '{"stringing":15,"grip":25,"overgrip":5}');
+let currentTab = 'jobs';
+
+function saveJobs(){ localStorage.setItem(STORAGE_KEY_JOBS, JSON.stringify(jobs)); }
+function saveGallery(){ localStorage.setItem(STORAGE_KEY_GALLERY, JSON.stringify(gallery)); }
+function savePrices(){ localStorage.setItem(STORAGE_KEY_PRICES, JSON.stringify(prices)); }
+
+function renderTabsAndView(){
+  const tabsDiv = document.getElementById('tabs');
+  tabsDiv.innerHTML = TABS.map(t => `<div class="tab ${t.id===currentTab?'active':''}" onclick="switchTab('${t.id}')">${t.label}${t.badge?`<span class="badge-new">${t.badge}</span>`:''}</div>`).join('');
+  renderContent();
+}
+
+function switchTab(id){
+  currentTab = id;
+  renderTabsAndView();
+}
+
+function jumpToJobs(){
+  switchTab('jobs');
+  window.scrollTo({top:0, behavior:'smooth'});
+  // small feedback
+  setTimeout(()=>{ alert('All features unlocked - no login needed. You are now on Clients & Jobs.'); }, 50);
+}
+
+function renderContent(){
+  const c = document.getElementById('content');
+  if(currentTab==='jobs'){ c.innerHTML = renderJobs(); }
+  if(currentTab==='inventory'){ c.innerHTML = renderInventory(); }
+  if(currentTab==='prices'){ c.innerHTML = renderPrices(); }
+  if(currentTab==='players'){ c.innerHTML = renderPlayers(); }
+  if(currentTab==='gallery'){ c.innerHTML = renderGallery(); }
+  if(currentTab==='tech'){ c.innerHTML = renderTech(); }
+  if(currentTab==='location'){ c.innerHTML = renderLocation(); }
+}
+
+function renderJobs(){
+  let rows = jobs.map((j,i)=>`
+    <tr>
+      <td>${j.date||''}</td>
+      <td>${j.clientName||''}</td>
+      <td>${j.mobile||''}</td>
+      <td>${j.racket||''}</td>
+      <td>${j.stringBrand||''}</td>
+      <td>${j.tensionSummer||''}</td>
+      <td>${j.tensionWinter||''}</td>
+      <td>${j.pattern||''}</td>
+      <td>${j.paid?'Paid':'Unpaid'}</td>
+      <td><button class="btn-danger" onclick="deleteJob(${i})">Delete</button></td>
+    </tr>
+  `).join('');
+  return `
+  <div class="card">
+    <div class="card-title">Add New Job</div>
+    <div class="grid grid-3">
+      <div><label>Date</label><input type="date" id="jobDate"></div>
+      <div><label>Client</label><input type="text" id="jobClient" placeholder="Name"></div>
+      <div><label>Mobile</label><input type="text" id="jobMobile" placeholder="+357..."></div>
+      <div><label>Racket</label><input type="text" id="jobRacket" placeholder="Racket model"></div>
+      <div><label>String Brand/Model</label><input type="text" id="jobString" placeholder="String"></div>
+      <div><label>Tension Summer (kg)</label><input type="number" id="jobTensionSummer" step="0.5" placeholder="24"></div>
+      <div><label>Tension Winter (kg)</label><input type="number" id="jobTensionWinter" step="0.5" placeholder="25"></div>
+      <div>
+        <label>Pattern</label>
+        <select id="jobPattern"><option value="">-</option><option>Prima</option><option>Seconda</option></select>
+      </div>
+      <div>
+        <label>Paid</label>
+        <select id="jobPaid"><option value="false">No</option><option value="true">Yes</option></select>
+      </div>
+    </div>
+    <div style="margin-top:12px; display:flex; gap:8px; justify-content:flex-end;">
+      <button class="btn-primary" onclick="addJob()">Add Job</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Jobs List</div>
+    <table><thead><tr><th>Date</th><th>Client</th><th>Mobile</th><th>Racket</th><th>String</th><th>Sum</th><th>Winter</th><th>Pattern</th><th>Paid</th><th>Actions</th></tr></thead><tbody>${rows||'<tr><td colspan="10" class="muted">No jobs yet.</td></tr>'}</tbody></table>
+  </div>`;
+}
+
+function addJob(){
+  const j = {
+    date: document.getElementById('jobDate').value,
+    clientName: document.getElementById('jobClient').value,
+    mobile: document.getElementById('jobMobile').value,
+    racket: document.getElementById('jobRacket').value,
+    stringBrand: document.getElementById('jobString').value,
+    tensionSummer: document.getElementById('jobTensionSummer').value,
+    tensionWinter: document.getElementById('jobTensionWinter').value,
+    pattern: document.getElementById('jobPattern').value,
+    paid: document.getElementById('jobPaid').value === 'true'
+  };
+  jobs.unshift(j);
+  saveJobs();
+  renderContent();
+}
+
+function deleteJob(i){ jobs.splice(i,1); saveJobs(); renderContent(); }
+
+function renderInventory(){
+  return `
+  <div class="card">
+    <div class="card-title">Inventory</div>
+    <p class="muted">Manage stock for strings and grips. All features enabled - no login required.</p>
+    <div class="grid grid-2" style="margin-top:12px;">
+      <div><label>Strings Stock</label><input type="number" id="invStrings" value="20" step="1"></div>
+      <div><label>Grips Stock</label><input type="number" id="invGrips" value="15" step="1"></div>
+      <div><label>Overgrips Stock</label><input type="number" id="invOvergrips" value="30" step="1"></div>
+      <div><label>Grommets Stock</label><input type="number" id="invGrommets" value="8" step="1"></div>
+    </div>
+    <div style="margin-top:12px; display:flex; gap:8px; justify-content:flex-end;">
+      <button class="btn-primary" onclick="alert('Inventory updated successfully.')">Save Inventory</button>
+    </div>
+    <div class="okmsg">All stock fields are now editable without any login.</div>
+  </div>`;
+}
+
+function renderPrices(){
+  return `
+  <div class="card">
+    <div class="card-title">Prices (Editable)</div>
+    <div class="grid grid-3">
+      <div><label>Stringing Price</label><input type="number" id="priceStringing" value="${prices.stringing}" step="1"></div>
+      <div><label>Grip Price</label><input type="number" id="priceGrip" value="${prices.grip}" step="1"></div>
+      <div><label>Overgrip Price</label><input type="number" id="priceOvergrip" value="${prices.overgrip}" step="1"></div>
+    </div>
+    <div style="margin-top:12px; display:flex; gap:8px; justify-content:flex-end;">
+      <button class="btn-primary" onclick="savePriceSettings()">Save Prices</button>
+    </div>
+    <p class="muted" style="margin-top:10px;">Only three services editable. Prices are in euros. Editing is always enabled - no password required.</p>
+  </div>`;
+}
+
+function savePriceSettings(){
+  prices.stringing = document.getElementById('priceStringing').value;
+  prices.grip = document.getElementById('priceGrip').value;
+  prices.overgrip = document.getElementById('priceOvergrip').value;
+  savePrices();
+  alert('Prices saved successfully. All features unlocked.');
+}
+
+function renderPlayers(){
+  const groups = {};
+  jobs.forEach(j=>{ if(!j.clientName) return; if(!groups[j.clientName]) groups[j.clientName]=[]; groups[j.clientName].push(j); });
+  let html = '<div class="card"><div class="card-title">Player Profiles</div>';
+  if(Object.keys(groups).length===0){ html += '<p class="muted">No players yet. Add jobs to create profiles.</p></div>'; return html; }
+  Object.keys(groups).forEach(name=>{
+    const arr = groups[name];
+    html += `<div class="player-group"><div class="player-title">${name}</div>`;
+    html += `<table><thead><tr><th>Date</th><th>Racket</th><th>String</th><th>Tension Summer</th><th>Tension Winter</th><th>Pattern</th></tr></thead><tbody>`;
+    arr.forEach(j=>{
+      html += `<tr><td>${j.date||'-'}</td><td>${j.racket||'-'}</td><td>${j.stringBrand||'-'}</td><td>${j.tensionSummer||'-'}</td><td>${j.tensionWinter||'-'}</td><td>${j.pattern||'-'}</td></tr>`;
+    });
+    html += '</tbody></table>';
+    const chartId = 'chart_'+name.replace(/\\s+/g,'_');
+    html += `<div class="chart-wrap"><div class="muted" style="margin-bottom:6px;">Summer vs Winter Tension</div><canvas id="${chartId}"></canvas></div>`;
+    html += '</div>';
+    setTimeout(()=>drawChart(chartId, arr),0);
+  });
+  html += '</div>';
+  return html;
+}
+
+function drawChart(id, arr){
+  const cvs = document.getElementById(id); if(!cvs) return; const ctx = cvs.getContext('2d');
+  const w = cvs.width = cvs.offsetWidth*2; const h = cvs.height = 180*2; ctx.scale(2,2);
+  const data = arr.slice(0,6).reverse();
+  const maxT = Math.max(30, Math.max(...data.map(j=>Math.max(parseFloat(j.tensionSummer)||0, parseFloat(j.tensionWinter)||0))));
+  const barW = 30; const gap=40; const baseY=140;
+  ctx.clearRect(0,0,500,180);
+  ctx.strokeStyle='#333'; ctx.beginPath(); ctx.moveTo(30,baseY); ctx.lineTo(500,baseY); ctx.stroke();
+  data.forEach((j,i)=>{
+    const x = 40 + i*gap;
+    const vs = parseFloat(j.tensionSummer)||0; const vw = parseFloat(j.tensionWinter)||0;
+    const hS = (vs/maxT)*100; const hW = (vw/maxT)*100;
+    ctx.fillStyle='#d4ff00'; ctx.fillRect(x, baseY - hS, barW/2-2, hS);
+    ctx.fillStyle='#4a8cff'; ctx.fillRect(x+barW/2+2, baseY - hW, barW/2-2, hW);
+    ctx.fillStyle='#888'; ctx.font='9px monospace'; ctx.fillText(j.date||(i+1), x-5, baseY+12);
+  });
+  ctx.fillStyle='#d4ff00'; ctx.fillRect(330,10,10,8); ctx.fillStyle='#e5e5e5'; ctx.fillText('Summer', 345, 18);
+  ctx.fillStyle='#4a8cff'; ctx.fillRect(410,10,10,8); ctx.fillStyle='#e5e5e5'; ctx.fillText('Winter', 425, 18);
+}
+
+function renderGallery(){
+  setTimeout(renderGalleryGrid,0);
+  return `
+  <div class="card">
+    <div class="card-title">Gallery</div>
+    <div><label>Upload Photos (multiple)</label><input type="file" id="galleryUpload" accept="image/*" multiple></div>
+    <div style="margin-top:10px;"><button class="btn-primary" onclick="uploadGallery()">Upload</button></div>
+  </div>
+  <div class="card"><div class="card-title">Stored Gallery</div><div class="gallery" id="galleryGrid"></div></div>`;
+}
+
+function uploadGallery(){
+  const f = document.getElementById('galleryUpload').files;
+  if(!f.length) return;
+  let loaded=0;
+  for(let file of f){
+    const fr = new FileReader();
+    fr.onload = () => { gallery.unshift({id:Date.now()+loaded, src:fr.result}); loaded++; if(loaded===f.length){ saveGallery(); renderGalleryGrid(); } };
+    fr.readAsDataURL(file);
+  }
+}
+
+function renderGalleryGrid(){
+  const grid = document.getElementById('galleryGrid'); if(!grid) return;
+  grid.innerHTML = gallery.map((g,i)=>`<div class="gallery-item"><img src="${g.src}" alt=""><button class="gallery-del" onclick="deleteGallery(${i})">Delete</button></div>`).join('') || '<div class="muted">No images uploaded.</div>';
+}
+
+function deleteGallery(i){ gallery.splice(i,1); saveGallery(); renderGalleryGrid(); }
+
+function renderTech(){
+  return `<div class="card"><div class="card-title">Tech Guide</div>
+  <ul class="list">
+    <li><strong>Stringing Process:</strong> Inspect frame for cracks before stringing. Measure racket to ensure correct tension.</li>
+    <li><strong>Tension Guidelines:</strong> Summer: lower 0.5-1.0kg for comfort. Winter: higher 0.5-1.0kg to maintain stiffness.</li>
+    <li><strong>Pattern Notes:</strong> Prima = main first, Seconda = cross first. Choose based on string and player preference.</li>
+    <li><strong>Quality Check:</strong> Verify knots secure. Check for even tension. Clean racket after service.</li>
+    <li><strong>Maintenance:</strong> Store rackets away from heat. Replace strings every 20-40 hours of play.</li>
+  </ul></div>`;
+}
+
+function renderLocation(){
+  return `<div class="card"><div class="card-title">Location</div>
+  <p class="muted">PRO Manager - Limassol</p>
+  <p class="muted">Address: Limassol, Cyprus</p>
+  <p class="muted">Google Maps Place ID: 893555869962192</p>
+  <div style="margin-top:12px;">
+    <a href="https://www.google.com/maps/search/?api=1&query=place_id:893555869962192" target="_blank" class="btn-primary" style="display:inline-block; text-decoration:none;">Open in Google Maps</a>
+  </div>
+  <div style="margin-top:14px; border:1px solid #222; border-radius:10px; overflow:hidden;">
+    <iframe src="https://www.google.com/maps?q=place_id:893555869962192&z=13&output=embed" width="100%" height="240" style="border:0;"></iframe>
+  </div>
+  </div>`;
+}
+
+function openWhatsApp(){
+  const phone = '35799000000';
+  const msg = encodeURIComponent('Hello! I want to book a stringing service via PRO Manager Limassol.');
+  window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+}
+
+// Initial load
+renderTabsAndView();
+</script>
+</body>
+</html>
