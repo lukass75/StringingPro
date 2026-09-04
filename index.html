@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Tennis Stringing Limassol - PRO Manager</title>
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --bg2:#121212;
+    --bg3:#1a1a1a;
+    --accent:#d4ff00;
+    --accent-dark:#b8dd00;
+    --text:#f5f5f5;
+    --textmuted:#a0a0a0;
+    --danger:#ff4b4b;
+    --ok:#00d26a;
+    --border:#2a2a2a;
+    --shadow:0 4px 12px rgba(0,0,0,0.5);
+    --radius:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+  header{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 16px;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+  .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px}
+  .brand-dot{width:10px;height:10px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent)}
+  .btn{background:var(--accent);color:#0a0a0a;border:none;padding:9px 14px;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px;transition:all .2s}
+  .btn:hover{background:var(--accent-dark)}
+  .btn-secondary{background:var(--bg3);color:var(--text);border:1px solid var(--border)}
+  .btn-danger{background:var(--danger);color:#fff}
+  .btn-small{padding:5px 9px;font-size:12px}
+  nav{background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:61px;z-index:90;overflow-x:auto}
+  .tabs{max-width:1200px;margin:0 auto;display:flex;gap:4px;padding:8px 16px}
+  .tab{padding:9px 16px;background:transparent;color:var(--textmuted);border:none;border-bottom:2px solid transparent;cursor:pointer;font-weight:600;font-size:14px;white-space:nowrap;border-radius:6px 6px 0 0;transition:all .2s}
+  .tab.active{color:var(--accent);border-bottom-color:var(--accent);background:var(--bg3)}
+  .container{max-width:1200px;margin:0 auto;padding:20px 16px}
+  .panel{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:16px;box-shadow:var(--shadow)}
+  h2{font-size:18px;margin-bottom:12px;color:var(--accent)}
+  h3{font-size:15px;margin:12px 0 8px;color:var(--text)}
+  .grid{display:grid;gap:12px}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:768px){
+    .grid-2,.grid-3{grid-template-columns:1fr}
+  }
+  input,select,textarea{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:10px 12px;border-radius:8px;font-size:14px;font-family:inherit}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:var(--accent)}
+  label{display:block;font-size:12px;color:var(--textmuted);margin-bottom:4px;font-weight:600}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  .row>*{flex:1 1 160px}
+  .list{display:flex;flex-direction:column;gap:8px}
+  .item{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .item-info{flex:1}
+  .badge{background:var(--accent);color:#0a0a0a;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700}
+  .badge-paid{background:var(--ok);color:#0a0a0a}
+  .badge-due{background:var(--danger);color:#fff}
+  .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  @media(max-width:500px){.gallery-grid{grid-template-columns:1fr}}
+  .gallery-item{position:relative;background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .gallery-item img,.gallery-item video{width:100%;height:180px;object-fit:cover;display:block}
+  .gallery-item .del{position:absolute;top:6px;right:6px}
+  .job-card{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px}
+  .job-header{display:flex;justify-content:space-between;align-items:start;gap:8px;margin-bottom:8px}
+  .thumbs{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .thumb{width:50px;height:50px;border-radius:6px;overflow:hidden;border:1px solid var(--border);cursor:pointer}
+  .thumb img{width:100%;height:100%;object-fit:cover}
+  .map-box{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px}
+  .modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:1000;padding:20px}
+  .modal.active{display:flex}
+  .modal-content{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;max-width:400px;width:100%;box-shadow:var(--shadow)}
+  .modal-img{max-width:100%;max-height:80vh;border-radius:8px}
+  .hidden{display:none}
+  .section{margin-bottom:18px}
+  .inline{display:flex;gap:8px;align-items:center}
+  .muted{color:var(--textmuted);font-size:12px}
+  .tag{display:inline-block;background:var(--bg3);border:1px solid var(--border);padding:4px 8px;border-radius:6px;font-size:12px;margin:2px}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand"><div class="brand-dot"></div>PRO Manager <span class="muted">| Limassol</span></div>
+    <div class="row" style="flex:0;justify-content:flex-end">
+      <a class="btn" href="https://wa.me/35799331469" target="_blank">BOOK VIA WHATSAPP</a>
+      <button class="btn btn-secondary" id="adminBtn">CLIENT MANAGER</button>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="tabs">
+    <button class="tab active" data-tab="clients">Clients & Jobs</button>
+    <button class="tab" data-tab="inventory">Inventory</button>
+    <button class="tab" data-tab="prices">Prices (Editable)</button>
+    <button class="tab" data-tab="gallery">Gallery</button>
+    <button class="tab" data-tab="map">Map</button>
+  </div>
+</nav>
+
+<div class="container">
+  <!-- CLIENTS & JOBS -->
+  <section id="tab-clients" class="tabcontent">
+    <div class="panel">
+      <h2>New Job</h2>
+      <div class="grid grid-2">
+        <div>
+          <label>Client Name</label>
+          <input id="pName" placeholder="John Doe">
+        </div>
+        <div>
+          <label>Phone</label>
+          <input id="pPhone" placeholder="+357 99 000000">
+        </div>
+        <div>
+          <label>Racket</label>
+          <input id="pRacket" placeholder="Babolat Pure Drive 2023">
+        </div>
+        <div>
+          <label>String</label>
+          <select id="pString"></select>
+        </div>
+        <div>
+          <label>Tension (kg/lbs)</label>
+          <input id="pTension" placeholder="24kg / 53lbs">
+        </div>
+        <div>
+          <label>Pattern</label>
+          <select id="pPattern">
+            <option value="Prima">Prima</option>
+            <option value="Seconda">Seconda</option>
+          </select>
+        </div>
+        <div>
+          <label>Date</label>
+          <input id="pDate" type="date">
+        </div>
+        <div>
+          <label>Price (â¬)</label>
+          <input id="pPrice" type="number" placeholder="35">
+        </div>
+        <div>
+          <label>Payment Status</label>
+          <select id="pPaid">
+            <option value="Due">Due</option>
+            <option value="Paid">Paid</option>
+          </select>
+        </div>
+        <div style="grid-column:1/-1">
+          <label>Notes</label>
+          <textarea id="pNotes" rows="2" placeholder="Notes..."></textarea>
+        </div>
+        <div style="grid-column:1/-1">
+          <label>Racket Photos (multiple)</label>
+          <input id="pPhotos" type="file" multiple accept="image/*">
+          <div class="muted">Photos will be attached to the job</div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <button class="btn" id="addJobBtn">Add Job</button>
+        <button class="btn btn-secondary" id="clearJobBtn">Clear</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="row" style="align-items:center">
+        <h2 style="margin:0;flex:1">Jobs</h2>
+        <div style="flex:0 0 200px">
+          <input id="searchJobs" placeholder="Search jobs...">
+        </div>
+      </div>
+      <div id="jobsList" class="list" style="margin-top:12px"></div>
+      <div id="noJobs" class="muted" style="text-align:center;padding:20px">No jobs yet.</div>
+    </div>
+  </section>
+
+  <!-- INVENTORY -->
+  <section id="tab-inventory" class="tabcontent hidden">
+    <div class="grid grid-2">
+      <div class="panel">
+        <h2>Strings</h2>
+        <div class="row">
+          <input id="newString" placeholder="Add string brand/model...">
+          <button class="btn" id="addStringBtn">Add</button>
+        </div>
+        <div id="stringsList" class="list" style="margin-top:12px"></div>
+      </div>
+      <div class="panel">
+        <h2>Overgrips</h2>
+        <div class="row">
+          <input id="newOver" placeholder="Add overgrip...">
+          <button class="btn" id="addOverBtn">Add</button>
+        </div>
+        <div id="overList" class="list" style="margin-top:12px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section id="tab-prices" class="tabcontent hidden">
+    <div class="panel">
+      <h2>Editable Prices (â¬)</h2>
+      <div class="grid grid-2">
+        <div>
+          <label>Labor</label>
+          <input id="priceLabor" type="number" step="0.5">
+        </div>
+        <div>
+          <label>Comfort String</label>
+          <input id="priceComfort" type="number" step="0.5">
+        </div>
+        <div>
+          <label>Performance String</label>
+          <input id="pricePerformance" type="number" step="0.5">
+        </div>
+        <div>
+          <label>Overgrip</label>
+          <input id="priceOvergrip" type="number" step="0.5">
+        </div>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <button class="btn" id="savePricesBtn">Save Prices</button>
+        <button class="btn btn-secondary" id="resetPricesBtn">Reset Defaults</button>
+      </div>
+      <div class="row" style="margin-top:16px">
+        <div class="tag">Labor: â¬<span id="priceLaborView">15</span></div>
+        <div class="tag">Comfort: â¬<span id="priceComfortView">25</span></div>
+        <div class="tag">Performance: â¬<span id="pricePerformanceView">35</span></div>
+        <div class="tag">Overgrip: â¬<span id="priceOvergripView">5</span></div>
+      </div>
+      <p class="muted" style="margin-top:8px">Prices are stored in localStorage as <code>sp_prices</code> and can be used for estimates.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="tab-gallery" class="tabcontent hidden">
+    <div class="panel">
+      <h2>Gallery</h2>
+      <div>
+        <label>Upload Photos / Videos</label>
+        <input id="galleryUpload" type="file" multiple accept="image/*,video/*">
+        <div class="muted">Upload images or videos. They are saved locally in your browser.</div>
+      </div>
+      <div id="galleryGrid" class="gallery-grid" style="margin-top:16px"></div>
+      <div id="noGallery" class="muted" style="text-align:center;padding:20px">No media yet. Upload to get started.</div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section id="tab-map" class="tabcontent hidden">
+    <div class="panel">
+      <h2>Location</h2>
+      <div class="map-box">
+        <h3>Professional Tennis Stringing Limassol</h3>
+        <p class="muted">Thirotou Georgiou 15, Limassol</p>
+        <p class="muted">Coordinates: 34.669398, 33.02486</p>
+        <p class="muted">Hours: Mon-Sat 09:00 - 19:00 | Sun Closed</p>
+        <div class="row" style="margin-top:12px">
+          <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Professional%20Tennis%20Stringing%20Limassol&query_place_id=893555869962192">Open in Google Maps</a>
+          <a class="btn btn-secondary" target="_blank" href="https://www.google.com/maps?q=34.669398,33.02486">View on Map (Coords)</a>
+        </div>
+        <div style="margin-top:14px;border-radius:10px;overflow:hidden;border:1px solid var(--border)">
+          <img src="https://maps.googleapis.com/maps/api/staticmap?center=34.669398,33.02486&zoom=15&size=600x300&markers=color:yellow%7Clabel:P%7C34.669398,33.02486&key=NOKEY" alt="Map location" style="width:100%;height:auto;display:block">
+        </div>
+        <p class="muted" style="margin-top:8px">Map placeholder â click buttons above to open full Google Maps in a new tab.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ADMIN LOGIN MODAL -->
+<div id="adminModal" class="modal">
+  <div class="modal-content">
+    <h2>Admin Login</h2>
+    <div style="margin-top:12px">
+      <label>Username</label>
+      <input id="adminUser" placeholder="Admin">
+    </div>
+    <div style="margin-top:10px">
+      <label>Password</label>
+      <input id="adminPass" type="password" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢">
+    </div>
+    <div class="row" style="margin-top:14px">
+      <button class="btn" id="loginBtn">Login</button>
+      <button class="btn btn-secondary" id="cancelLoginBtn">Cancel</button>
+    </div>
+    <p id="loginError" class="muted" style="color:var(--danger);margin-top:8px;display:none">Invalid credentials</p>
+  </div>
+</div>
+
+<!-- IMAGE MODAL -->
+<div id="imgModal" class="modal" onclick="this.classList.remove('active')">
+  <img id="imgModalContent" class="modal-img">
+</div>
+
+<script>
+(function(){
+  const ADMIN_USER = 'Admin';
+  const ADMIN_PASS = 'P1l2s3t4';
+  let isAdmin = false;
+
+  const tabs = document.querySelectorAll('.tab');
+  const tabcontents = document.querySelectorAll('.tabcontent');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    const name = t.dataset.tab;
+    tabcontents.forEach(s=>s.classList.add('hidden'));
+    document.getElementById('tab-'+name).classList.remove('hidden');
+  }));
+
+  // Admin
+  document.getElementById('adminBtn').onclick = () => {
+    if(isAdmin){
+      isAdmin = false;
+      document.getElementById('adminBtn').textContent = 'CLIENT MANAGER';
+      renderJobs();
+    } else {
+      document.getElementById('adminModal').classList.add('active');
+    }
+  };
+  document.getElementById('cancelLoginBtn').onclick = () => {
+    document.getElementById('adminModal').classList.remove('active');
+    document.getElementById('loginError').style.display='none';
+  };
+  document.getElementById('loginBtn').onclick = () => {
+    const u = document.getElementById('adminUser').value.trim();
+    const p = document.getElementById('adminPass').value.trim();
+    if(u===ADMIN_USER && p===ADMIN_PASS){
+      isAdmin = true;
+      document.getElementById('adminBtn').textContent = 'LOGOUT (Admin)';
+      document.getElementById('adminModal').classList.remove('active');
+      document.getElementById('loginError').style.display='none';
+      renderJobs();
+    } else {
+      document.getElementById('loginError').style.display='block';
+    }
+  };
+
+  // Storage helpers
+  const get = (k,def)=>JSON.parse(localStorage.getItem(k) || JSON.stringify(def));
+  const set = (k,v)=>localStorage.setItem(k, JSON.stringify(v));
+
+  // Prices
+  const defaultPrices = {labor:15, comfort:25, performance:35, overgrip:5};
+  let prices = get('sp_prices', defaultPrices);
+  function loadPrices(){
+    document.getElementById('priceLabor').value = prices.labor;
+    document.getElementById('priceComfort').value = prices.comfort;
+    document.getElementById('pricePerformance').value = prices.performance;
+    document.getElementById('priceOvergrip').value = prices.overgrip;
+    updatePriceView();
+  }
+  function updatePriceView(){
+    document.getElementById('priceLaborView').textContent = prices.labor;
+    document.getElementById('priceComfortView').textContent = prices.comfort;
+    document.getElementById('pricePerformanceView').textContent = prices.performance;
+    document.getElementById('priceOvergripView').textContent = prices.overgrip;
+  }
+  document.getElementById('savePricesBtn').onclick = () => {
+    prices = {
+      labor: parseFloat(document.getElementById('priceLabor').value)||0,
+      comfort: parseFloat(document.getElementById('priceComfort').value)||0,
+      performance: parseFloat(document.getElementById('pricePerformance').value)||0,
+      overgrip: parseFloat(document.getElementById('priceOvergrip').value)||0
+    };
+    set('sp_prices', prices);
+    updatePriceView();
+    alert('Prices saved!');
+  };
+  document.getElementById('resetPricesBtn').onclick = () => {
+    prices = defaultPrices; set('sp_prices', prices); loadPrices(); alert('Prices reset to defaults');
+  };
+  loadPrices();
+
+  // Inventory
+  let strings = get('sp_strings', []);
+  let overgrips = get('sp_over', []);
+  function renderStrings(){
+    const cont = document.getElementById('stringsList');
+    cont.innerHTML = '';
+    strings.forEach((s,i)=>{
+      const div = document.createElement('div'); div.className='item';
+      div.innerHTML = `<div class="item-info">${s}</div>` + (isAdmin?`<button class="btn btn-danger btn-small" data-i="${i}" data-type="string">Delete</button>`:'');
+      cont.appendChild(div);
+    });
+    const pstring = document.getElementById('pString');
+    pstring.innerHTML = strings.map(s=>`<option value="${s}">${s}</option>`).join('') || '<option value="">No strings yet</option>';
+  }
+  function renderOver(){
+    const cont = document.getElementById('overList');
+    cont.innerHTML = '';
+    overgrips.forEach((s,i)=>{
+      const div = document.createElement('div'); div.className='item';
+      div.innerHTML = `<div class="item-info">${s}</div>` + (isAdmin?`<button class="btn btn-danger btn-small" data-i="${i}" data-type="over">Delete</button>`:'');
+      cont.appendChild(div);
+    });
+  }
+  document.getElementById('addStringBtn').onclick = () => {
+    const v = document.getElementById('newString').value.trim(); if(!v) return;
+    strings.push(v); set('sp_strings', strings); document.getElementById('newString').value=''; renderStrings();
+  };
+  document.getElementById('addOverBtn').onclick = () => {
+    const v = document.getElementById('newOver').value.trim(); if(!v) return;
+    overgrips.push(v); set('sp_over', overgrips); document.getElementById('newOver').value=''; renderOver();
+  };
+  document.addEventListener('click', e=>{
+    if(e.target.dataset.type==='string'){
+      strings.splice(e.target.dataset.i,1); set('sp_strings', strings); renderStrings();
+    }
+    if(e.target.dataset.type==='over'){
+      overgrips.splice(e.target.dataset.i,1); set('sp_over', overgrips); renderOver();
+    }
+    if(e.target.dataset.deljob){
+      jobs.splice(e.target.dataset.deljob,1); set('sp_jobs', jobs); renderJobs();
+    }
+    if(e.target.dataset.delgallery){
+      gallery.splice(e.target.dataset.delgallery,1); set('sp_gallery', gallery); renderGallery();
+    }
+  });
+  renderStrings(); renderOver();
+
+  // Gallery
+  let gallery = get('sp_gallery', []);
+  function renderGallery(){
+    const grid = document.getElementById('galleryGrid');
+    const no = document.getElementById('noGallery');
+    grid.innerHTML = '';
+    if(gallery.length===0){ no.style.display='block'; return; }
+    no.style.display='none';
+    gallery.forEach((m,i)=>{
+      const div = document.createElement('div'); div.className='gallery-item';
+      const media = m.type.startsWith('video')? `<video src="${m.data}" controls></video>` : `<img src="${m.data}" alt="${m.name}" onclick="showImg(this.src)">`;
+      div.innerHTML = media + (isAdmin?`<button class="btn btn-danger btn-small del" data-delgallery="${i}">Delete</button>`:'');
+      grid.appendChild(div);
+    });
+  }
+  document.getElementById('galleryUpload').addEventListener('change', async (e)=>{
+    const files = Array.from(e.target.files);
+    for(const f of files){
+      const data = await readAsDataURL(f);
+      gallery.push({id:Date.now()+'_'+Math.random(), data, name:f.name, type:f.type});
+    }
+    set('sp_gallery', gallery); renderGallery(); e.target.value='';
+  });
+  renderGallery();
+
+  function readAsDataURL(file){ return new Promise(resolve=>{ const r=new FileReader(); r.onload=()=>resolve(r.result); r.readAsDataURL(file);}); }
+  window.showImg = (src)=>{ document.getElementById('imgModalContent').src=src; document.getElementById('imgModal').classList.add('active'); };
+
+  // Jobs
+  let jobs = get('sp_jobs', []);
+  const dateNow = new Date().toISOString().split('T')[0];
+  document.getElementById('pDate').value = dateNow;
+
+  document.getElementById('clearJobBtn').onclick = ()=>{
+    ['pName','pPhone','pRacket','pTension','pNotes','pPrice'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('pPattern').value='Prima';
+    document.getElementById('pPaid').value='Due';
+    document.getElementById('pPhotos').value='';
+    document.getElementById('pDate').value = dateNow;
+  };
+
+  document.getElementById('addJobBtn').onclick = async ()=>{
+    const job = {
+      id: Date.now(),
+      name: document.getElementById('pName').value.trim(),
+      phone: document.getElementById('pPhone').value.trim(),
+      racket: document.getElementById('pRacket').value.trim(),
+      string: document.getElementById('pString').value,
+      tension: document.getElementById('pTension').value.trim(),
+      pattern: document.getElementById('pPattern').value,
+      date: document.getElementById('pDate').value,
+      price: document.getElementById('pPrice').value.trim(),
+      paid: document.getElementById('pPaid').value,
+      notes: document.getElementById('pNotes').value.trim(),
+      photos: []
+    };
+    if(!job.name){ alert('Client name required'); return; }
+    const files = Array.from(document.getElementById('pPhotos').files);
+    for(const f of files){ job.photos.push(await readAsDataURL(f)); }
+    jobs.unshift(job); set('sp_jobs', jobs); document.getElementById('clearJobBtn').click(); renderJobs();
+  };
+
+  function renderJobs(){
+    const container = document.getElementById('jobsList');
+    const no = document.getElementById('noJobs');
+    const q = document.getElementById('searchJobs').value.toLowerCase();
+    const filtered = jobs.filter(j=>!q || (j.name+j.phone+j.racket+j.string+j.notes).toLowerCase().includes(q));
+    container.innerHTML = '';
+    if(filtered.length===0){ no.style.display='block'; return; }
+    no.style.display='none';
+    filtered.forEach((j,idx)=>{
+      const i = jobs.indexOf(j);
+      const div = document.createElement('div'); div.className='job-card';
+      const photosHtml = j.photos.map(p=>`<div class="thumb"><img src="${p}" onclick="showImg(this.src)"></div>`).join('');
+      div.innerHTML = `
+        <div class="job-header">
+          <div>
+            <div style="font-weight:700">${j.name} <span class="muted">â¢ ${j.phone}</span></div>
+            <div class="muted">${j.date} â¢ ${j.racket}</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:700;color:var(--accent)">â¬${j.price||'-'}</div>
+            <span class="badge ${j.paid==='Paid'?'badge-paid':'badge-due'}">${j.paid}</span>
+            ${isAdmin?`<button class="btn btn-danger btn-small" data-deljob="${i}" style="margin-top:6px">Delete</button>`:''}
+          </div>
+        </div>
+        <div class="row" style="font-size:13px">
+          <div class="tag">String: ${j.string||'-'}</div>
+          <div class="tag">Tension: ${j.tension||'-'}</div>
+          <div class="tag">Pattern: ${j.pattern||'-'}</div>
+        </div>
+        ${j.notes?`<div class="muted" style="margin-top:6px">${j.notes}</div>`:''}
+        ${photosHtml?`<div class="thumbs">${photosHtml}</div>`:''}
+      `;
+      container.appendChild(div);
+    });
+  }
+  document.getElementById('searchJobs').addEventListener('input', renderJobs);
+  renderJobs();
+
+})();
+</script>
+</body>
+</html>
