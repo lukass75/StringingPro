@@ -1,0 +1,184 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://cdn.fbsbx.com/v/t65.102178-21/795912375_766935419847932_5173143820333923659_n.jpg/index_final_english_admin.html?_nc_ht=cdn.fbsbx.com&_nc_ohc=lJ3pVOkQa_wQ7kNvwGu-mGr&sdl=0&ccb=14-4&oh=00_AQLgBvjSYgAyxWn8y3YmSrdqt9eb4UYmTzNp1Kjys6zM_Q&oe=6A9CCB17&_nc_sid=4ee932
+Subject: Professional Stringing in Limassol
+Date: Fri, 4 Sep 2026 18:05:30 +0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--8vJmfi3Tzs5RongH1WwxwV0rhgS20cJCWh2HH3GVFZ----"
+
+
+------MultipartBoundary--8vJmfi3Tzs5RongH1WwxwV0rhgS20cJCWh2HH3GVFZ----
+Content-Type: text/html
+Content-ID: <frame-A6DBD437EDFE0C43D9B710CFFE614C56@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: https://cdn.fbsbx.com/v/t65.102178-21/795912375_766935419847932_5173143820333923659_n.jpg/index_final_english_admin.html?_nc_ht=cdn.fbsbx.com&_nc_ohc=lJ3pVOkQa_wQ7kNvwGu-mGr&sdl=0&ccb=14-4&oh=00_AQLgBvjSYgAyxWn8y3YmSrdqt9eb4UYmTzNp1Kjys6zM_Q&oe=6A9CCB17&_nc_sid=4ee932
+
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-67cf2c56-f30e-4e19-b286-0680d57409c2@mhtml.blink" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Professional Stringing in Limassol</title>
+
+</head>
+<body>
+<div class="h">
+<h1>PROFESSIONAL<br><span>STRINGING</span><br>IN LIMASSOL</h1>
+<div class="sub">Tournament precision. 24h turnaround. For players who feel the difference between 24 and 25 kg. Yonex, Toalson, Luxilon, orange overgrips.</div>
+<div class="btns">
+<a class="b" href="https://wa.me/35799331469?text=Hi!%20I%20need%20racket%20stringing%20in%20Limassol" target="_blank">💬 BOOK VIA WHATSAPP</a>
+<a class="b b2" href="tel:+35799331469">📞 +357 99 331469</a>
+<a class="b b2" id="adminBtn" href="https://cdn.fbsbx.com/v/t65.102178-21/795912375_766935419847932_5173143820333923659_n.jpg/index_final_english_admin.html?_nc_ht=cdn.fbsbx.com&amp;_nc_ohc=lJ3pVOkQa_wQ7kNvwGu-mGr&amp;sdl=0&amp;ccb=14-4&amp;oh=00_AQLgBvjSYgAyxWn8y3YmSrdqt9eb4UYmTzNp1Kjys6zM_Q&amp;oe=6A9CCB17&amp;_nc_sid=4ee932#">🔒 CLIENT MANAGER</a>
+</div>
+<div class="stats">
+<div class="st"><b>15+ years</b><div>experience</div></div>
+<div class="st"><b>1000+ rackets</b><div>strung</div></div>
+<div class="st"><b>Wilson Baiardo</b><div>electronic machine</div></div>
+</div>
+</div>
+
+<div class="tabs">
+<button class="tab on" data-t="jobs">Clients &amp; Jobs</button>
+<button class="tab" data-t="strings">Strings</button>
+<button class="tab" data-t="over">Overgrips</button>
+<button class="tab" data-t="prices">Prices</button>
+<button class="tab" data-t="loc">Location</button>
+</div>
+
+<div class="wrap">
+<div id="view-jobs">
+<div class="card">
+<h3>New Client Job - English</h3>
+<div class="grid2">
+<input id="pName" placeholder="Player Full Name *">
+<input id="pPhone" placeholder="Phone / WhatsApp">
+<input id="pRacket" placeholder="Racket Model">
+<select id="pString"><option>YONEX PolyTour Pro 1.25</option><option>YONEX PolyTour Strike 1.25</option><option>Luxilon Alu Power 1.25</option><option>Babolat RPM Blast 1.25</option><option>Wilson NXT 1.32</option><option>Toalson Asterista Armored</option></select>
+<input id="pTension" placeholder="Tension ex: 24/23 kg">
+<select id="pPattern"><option>Prima</option><option>Seconda</option></select>
+<input id="pDate" type="date">
+<input id="pPrice" placeholder="Price €">
+<select id="pPaid"><option value="No">Unpaid</option><option value="Yes">Paid</option></select>
+</div>
+<textarea id="pNotes" placeholder="Notes..."></textarea>
+<div class="row">
+<button class="btnS">+ Add Job</button>
+<button class="btnS btnG">WhatsApp Client</button>
+</div>
+</div>
+<div class="card">
+<h3>Jobs - <span id="cCount">0</span> total • <span id="cToday">0</span> today</h3>
+<input id="search" placeholder="Search Name, Tension, String Type, Date..." style="margin-bottom:10px">
+<div class="jobs" id="jobsList"><div class="muted">No jobs</div></div>
+</div>
+</div>
+
+<div id="view-strings" style="display:none">
+<div class="card"><h3>Strings Inventory</h3><div class="row" style="margin-bottom:10px"><input id="newStr" placeholder="Add String Type"><button class="btnS" style="flex:0 0 90px">Add</button></div><div class="list" id="strList"><div class="item"><span>YONEX PolyTour Pro 1.25</span><span style="cursor:pointer;color:#555">✕</span></div><div class="item"><span>Luxilon Alu Power 1.25</span><span style="cursor:pointer;color:#555">✕</span></div><div class="item"><span>Babolat RPM Blast</span><span style="cursor:pointer;color:#555">✕</span></div></div></div>
+</div>
+<div id="view-over" style="display:none">
+<div class="card"><h3>Overgrips</h3><div class="row" style="margin-bottom:10px"><input id="newOver" placeholder="Add Overgrip"><button class="btnS" style="flex:0 0 90px">Add</button></div><div class="list" id="overList"><div class="item"><span>Wilson Pro Overgrip White</span><span style="cursor:pointer;color:#555">✕</span></div><div class="item"><span>Yonex Super Grap</span><span style="cursor:pointer;color:#555">✕</span></div><div class="item"><span>Tourna Tac</span><span style="cursor:pointer;color:#555">✕</span></div></div></div>
+</div>
+<div id="view-prices" style="display:none">
+<div class="card"><h3>Prices</h3><div class="list"><div class="item"><span>Labor Only (your string)</span><span class="price">€15</span></div><div class="item"><span>Comfort Pack (labor + basic string)</span><span class="price">€25</span></div><div class="item"><span>Performance Pack (premium)</span><span class="price">€35</span></div><div class="item"><span>Overgrip</span><span class="price">€5</span></div></div><p class="muted" style="margin-top:10px">Wilson • Babolat • Luxilon • Yonex available. Professional electronic machine.</p></div>
+</div>
+<div id="view-loc" style="display:none">
+<div class="card"><h3>Location &amp; Hours</h3><p style="font-size:12px">Limassol Sporting Club Tennis<br><span class="muted">Near Limassol Marina</span></p><p class="muted" style="margin-top:8px">Mon-Sat: 9:00-19:00 • Same day service</p><div class="row"><a class="b b2" style="flex:1;justify-content:center" href="https://www.google.com/maps/search/?api=1&amp;query=Limassol+Sporting+Club+Tennis" target="_blank">📍 Open in Maps</a><a class="b" style="flex:1;justify-content:center" href="https://wa.me/35799331469" target="_blank">💬 WhatsApp</a></div></div>
+</div>
+</div>
+
+<div id="login">
+<div class="loginBox">
+<h3 style="margin-bottom:12px">Admin Login</h3>
+<input id="u" placeholder="Username" value="Admin" style="margin-bottom:8px">
+<input id="p" placeholder="Password" type="password" value="">
+<div class="row"><button class="btnS">Login</button><button class="btnS btnG">Cancel</button></div>
+<p class="muted" style="margin-top:8px">Use Admin / P1l2s3t4</p>
+<p id="loginErr" style="color:#ff5555;font-size:11px;margin-top:6px;display:none">Wrong credentials</p>
+</div>
+</div>
+
+
+
+
+</body></html>
+------MultipartBoundary--8vJmfi3Tzs5RongH1WwxwV0rhgS20cJCWh2HH3GVFZ----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-67cf2c56-f30e-4e19-b286-0680d57409c2@mhtml.blink
+
+@charset "utf-8";
+
+* { margin: 0px; padding: 0px; box-sizing: border-box; }
+
+body { background: rgb(10, 10, 10); color: rgb(232, 232, 232); font-family: Inter, system-ui, Arial, sans-serif; line-height: 1.4; }
+
+.h { padding: 28px 18px 14px; background: radial-gradient(1200px 400px at 20% -10%, rgb(30, 42, 0) 0%, rgb(10, 10, 10) 60%); border-bottom: 1px solid rgb(26, 26, 26); }
+
+.h h1 { font-size: 34px; font-weight: 900; letter-spacing: -1px; line-height: 0.9; }
+
+.h h1 span { color: rgb(212, 255, 0); }
+
+.sub { color: rgb(154, 154, 154); font-size: 12px; margin-top: 8px; max-width: 520px; }
+
+.btns { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+
+.b { background: rgb(212, 255, 0); color: rgb(0, 0, 0); padding: 10px 16px; border-radius: 100px; font-weight: 800; font-size: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+
+.b2 { background: rgb(23, 23, 23); color: rgb(255, 255, 255); border: 1px solid rgb(38, 38, 38); }
+
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; }
+
+.st { background: rgb(20, 20, 20); border: 1px solid rgb(31, 31, 31); border-radius: 14px; padding: 10px; }
+
+.st b { color: rgb(212, 255, 0); font-size: 13px; }
+
+.st div { font-size: 10px; color: rgb(119, 119, 119); margin-top: 2px; }
+
+.tabs { display: flex; gap: 6px; padding: 12px 18px; overflow: auto; border-bottom: 1px solid rgb(21, 21, 21); position: sticky; top: 0px; background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(10px); z-index: 5; }
+
+.tab { padding: 8px 12px; border-radius: 100px; font-size: 11px; font-weight: 700; border: 1px solid rgb(34, 34, 34); background: rgb(20, 20, 20); color: rgb(136, 136, 136); cursor: pointer; white-space: nowrap; }
+
+.tab.on { background: rgb(212, 255, 0); color: rgb(0, 0, 0); border-color: rgb(212, 255, 0); }
+
+.wrap { padding: 14px 12px; max-width: 900px; margin: 0px auto; }
+
+.card { background: rgb(18, 18, 18); border: 1px solid rgb(30, 30, 30); border-radius: 18px; padding: 14px; margin-bottom: 12px; }
+
+.card h3 { font-size: 13px; color: rgb(212, 255, 0); margin-bottom: 10px; letter-spacing: 0.3px; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+input, select, textarea { width: 100%; background: rgb(15, 15, 15); border: 1px solid rgb(36, 36, 36); color: rgb(255, 255, 255); border-radius: 10px; padding: 10px 12px; font-size: 12px; }
+
+textarea { min-height: 56px; }
+
+.row { display: flex; gap: 8px; margin-top: 8px; }
+
+.btnS { flex: 1 1 0%; background: rgb(212, 255, 0); color: rgb(0, 0, 0); border-width: medium; border-style: none; border-color: currentcolor; border-image: none; border-radius: 10px; padding: 11px; font-weight: 900; font-size: 12px; cursor: pointer; }
+
+.btnG { background: rgb(26, 26, 26); color: rgb(170, 170, 170); border: 1px solid rgb(38, 38, 38); }
+
+.jobs { display: grid; gap: 8px; margin-top: 10px; }
+
+.job { background: rgb(15, 15, 15); border: 1px solid rgb(30, 30, 30); border-radius: 14px; padding: 10px; display: flex; justify-content: space-between; gap: 8px; }
+
+.job b { font-size: 12px; }
+
+.job small { color: rgb(119, 119, 119); font-size: 10px; display: block; margin-top: 2px; }
+
+.badge { font-size: 9px; background: rgb(30, 30, 30); border: 1px solid rgb(42, 42, 42); padding: 3px 7px; border-radius: 100px; color: rgb(136, 136, 136); }
+
+.list { display: grid; gap: 6px; }
+
+.item { display: flex; justify-content: space-between; align-items: center; background: rgb(15, 15, 15); border: 1px solid rgb(30, 30, 30); border-radius: 10px; padding: 8px 10px; font-size: 12px; }
+
+.price { color: rgb(212, 255, 0); font-weight: 900; }
+
+.muted { color: rgb(102, 102, 102); font-size: 11px; }
+
+#login { position: fixed; inset: 0px; background: rgba(0, 0, 0, 0.8); display: none; align-items: center; justify-content: center; z-index: 99; padding: 20px; }
+
+#login.on { display: flex; }
+
+.loginBox { background: rgb(20, 20, 20); border: 1px solid rgb(38, 38, 38); border-radius: 20px; padding: 20px; width: 100%; max-width: 320px; }
+------MultipartBoundary--8vJmfi3Tzs5RongH1WwxwV0rhgS20cJCWh2HH3GVFZ------
