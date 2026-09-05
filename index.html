@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RACKET PRO V6.1</title>
+<style>
+  :root{
+    --bg:#0b0f0b; --panel:#121a12; --panel2:#1a241a; --lime:#9cff4d; --lime-2:#6fbf31; --txt:#e6f5dc; --muted:#8fa88f; --border:#2a362a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--txt);}
+  header{background:var(--panel);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+  header h1{margin:0;font-size:16px;color:var(--lime);letter-spacing:0.5px}
+  .container{max-width:1000px;margin:24px auto;padding:0 16px}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:14px}
+  label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}
+  input,select,textarea,button{font:inherit}
+  input,select,textarea{background:#0d140d;border:1px solid var(--border);color:var(--txt);border-radius:6px;padding:8px 10px;width:100%}
+  button{background:var(--lime-2);color:#0b0f0b;border:0;border-radius:6px;padding:9px 14px;font-weight:600;cursor:pointer}
+  button.secondary{background:transparent;color:var(--lime);border:1px solid var(--lime-2)}
+  button.ghost{background:transparent;color:var(--muted);border:1px solid var(--border)}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .col{flex:1 1 180px}
+  .col-3{flex:1 1 120px}
+  .hide{display:none}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+  .pill{display:inline-block;background:#1a241a;border:1px solid var(--border);color:var(--lime);padding:4px 8px;border-radius:999px;font-size:12px;margin-right:6px}
+  .muted{color:var(--muted);font-size:12px}
+  .price{display:flex;gap:8px;flex-wrap:wrap}
+  .price .pill{background:#101b10}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+  .gallery img{width:100%;height:100px;object-fit:cover;border-radius:6px;border:1px solid var(--border)}
+  .fin-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--border)}
+  footer{color:var(--muted);font-size:11px;text-align:center;padding:20px}
+</style>
+</head>
+<body>
+<header>
+  <h1>■ RACKET PRO V6.1</h1>
+  <span class="muted">dark • lime</span>
+</header>
+
+<div class="container">
+  <div id="login" class="card">
+    <h3 style="margin:0 0 8px;color:var(--lime)">Login</h3>
+    <div class="row">
+      <div class="col"><label>Username</label><input id="user" placeholder="admin" autocomplete="username"></div>
+      <div class="col"><label>Password</label><input id="pass" type="password" placeholder="1234" autocomplete="current-password"></div>
+    </div>
+    <div style="margin-top:12px"><button id="loginBtn">Login</button> <span id="loginMsg" class="muted"></span></div>
+    <p class="muted" style="margin-top:8px">Credentials: <code>admin</code> / <code>1234</code></p>
+  </div>
+
+  <div id="app" class="hide">
+    <div class="card">
+      <h3 style="margin:0 0 8px;color:var(--lime)">Jobs</h3>
+      <div class="grid">
+        <div><label>Client</label><input id="f_client" placeholder="John Doe"></div>
+        <div><label>Phone</label><input id="f_phone" placeholder="+40..."></div>
+        <div><label>Racket</label><input id="f_racket" placeholder="Babolat Pure Aero"></div>
+        <div><label>String</label><input id="f_string" placeholder="Poly Tour Pro"></div>
+        <div class="col-3"><label>Main (kg)</label><input id="f_main" type="number" step="0.1" placeholder="23"></div>
+        <div class="col-3"><label>Cross (kg)</label><input id="f_cross" type="number" step="0.1" placeholder="22"></div>
+        <div class="col-3"><label>Weight (kg)</label><input id="f_kg" type="number" step="0.01" placeholder="0.32"></div>
+        <div class="col-3"><label>Weight (lbs) auto</label><input id="f_lbs" readonly placeholder="0.00"></div>
+        <div class="col-3">
+          <label>Status</label>
+          <select id="f_status">
+            <option value="Received">Received</option>
+            <option value="Ready">Ready</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:12px" class="row">
+        <button id="sendWA">Send WhatsApp</button>
+        <button class="secondary" id="clearJob">Clear</button>
+        <span class="muted">WhatsApp link will open with job summary.</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 8px;color:var(--lime)">Prices</h3>
+      <div class="price">
+        <span class="pill">Stringing: 15 RON</span>
+        <span class="pill">Grip: 25 RON</span>
+        <span class="pill">Grommet: 3 RON</span>
+        <span class="pill">Overgrip: 5 RON</span>
+        <span class="pill">Tuning: 5 RON</span>
+      </div>
+      <div style="margin-top:10px">
+        <h4 style="margin:6px 0;color:var(--lime);font-size:14px">Offers</h4>
+        <span class="pill">2 rackets: 45 RON</span>
+      </div>
+      <div style="margin-top:10px">
+        <h4 style="margin:6px 0;color:var(--lime);font-size:14px">Pickup / Delivery</h4>
+        <span class="pill">Pickup: 5 RON</span>
+        <span class="pill">Delivery: 5 RON</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 8px;color:var(--lime)">Gallery Upload</h3>
+      <input type="file" id="fileInput" accept="image/*" multiple>
+      <div id="gallery" class="gallery" style="margin-top:10px"></div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 8px;color:var(--lime)">Stickers</h3>
+      <textarea id="stickerText" rows="3" placeholder="RACKET PRO V6.1 - JOHN DOE - READY - 23/22kg"></textarea>
+      <div style="margin-top:8px"><button id="printSticker">Print Sticker</button></div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 8px;color:var(--lime)">Finance</h3>
+      <div class="row">
+        <div class="col-3"><label>Stringing (qty)</label><input id="fin_string" type="number" value="0" min="0"></div>
+        <div class="col-3"><label>Grip (qty)</label><input id="fin_grip" type="number" value="0" min="0"></div>
+        <div class="col-3"><label>Pickup/Delivery (qty)</label><input id="fin_pickup" type="number" value="0" min="0"></div>
+      </div>
+      <div style="margin-top:10px" id="financeSummary"></div>
+      <div style="margin-top:8px"><button class="secondary" id="calcFinance">Calculate</button></div>
+    </div>
+  </div>
+</div>
+
+<footer>RACKET PRO V6.1 • minimal • local only</footer>
+
+<script>
+const loginEl = document.getElementById('login');
+const appEl = document.getElementById('app');
+const loginMsg = document.getElementById('loginMsg');
+
+document.getElementById('loginBtn').addEventListener('click', () => {
+  const u = (document.getElementById('user').value || '').trim().toLowerCase();
+  const p = (document.getElementById('pass').value || '').trim().toLowerCase();
+  if(u==='admin' && p==='1234'){
+    loginEl.classList.add('hide');
+    appEl.classList.remove('hide');
+  }else{
+    loginMsg.textContent = 'Invalid credentials. Use admin/1234';
+  }
+});
+
+function updateLbs(){
+  const kg = parseFloat(document.getElementById('f_kg').value);
+  if(!isNaN(kg)){
+    document.getElementById('f_lbs').value = (kg * 2.20462).toFixed(2);
+  }else{
+    document.getElementById('f_lbs').value = '';
+  }
+}
+document.getElementById('f_kg').addEventListener('input', updateLbs);
+
+document.getElementById('sendWA').addEventListener('click', ()=>{
+  const client = document.getElementById('f_client').value.trim();
+  const phone = document.getElementById('f_phone').value.trim();
+  const racket = document.getElementById('f_racket').value.trim();
+  const str = document.getElementById('f_string').value.trim();
+  const main = document.getElementById('f_main').value.trim();
+  const cross = document.getElementById('f_cross').value.trim();
+  const kg = document.getElementById('f_kg').value.trim();
+  const lbs = document.getElementById('f_lbs').value.trim();
+  const status = document.getElementById('f_status').value;
+  const text = `RACKET PRO V6.1 Job%0AClient: ${client}%0APhone: ${phone}%0ARacket: ${racket}%0AString: ${str}%0AMain: ${main}kg%0ACross: ${cross}kg%0AWeight: ${kg}kg (${lbs}lbs)%0AStatus: ${status}`;
+  const url = `https://wa.me/${phone.replace(/[^0-9]/g,'')}?text=${text}`;
+  window.open(url, '_blank');
+});
+
+document.getElementById('clearJob').addEventListener('click', ()=>{
+  ['f_client','f_phone','f_racket','f_string','f_main','f_cross','f_kg','f_lbs'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('f_status').value='Received';
+});
+
+document.getElementById('fileInput').addEventListener('change', (e)=>{
+  const gallery = document.getElementById('gallery');
+  gallery.innerHTML='';
+  Array.from(e.target.files).forEach(file=>{
+    const reader = new FileReader();
+    reader.onload = ev=>{
+      const img = document.createElement('img');
+      img.src = ev.target.result;
+      gallery.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+});
+
+document.getElementById('printSticker').addEventListener('click', ()=>{
+  const t = document.getElementById('stickerText').value;
+  const w = window.open('', '_blank', 'width=400,height=200');
+  w.document.write('<html><head><title>Sticker</title><style>body{font-family:monospace;padding:20px;background:#fff;color:#000}</style></head><body><pre style="font-size:14px;border:2px dashed #000;padding:10px;">'+t.replace(/</g,'&lt;')+'</pre><script>window.print();</script></body></html>');
+  w.document.close();
+});
+
+function calcFinance(){
+  const prices = {stringing:15, grip:25, pickup:5};
+  const s = parseInt(document.getElementById('fin_string').value)||0;
+  const g = parseInt(document.getElementById('fin_grip').value)||0;
+  const p = parseInt(document.getElementById('fin_pickup').value)||0;
+  const total = s*prices.stringing + g*prices.grip + p*prices.pickup;
+  document.getElementById('financeSummary').innerHTML = `
+    <div class="fin-row"><span>Stringing (${s} × 15 RON)</span><span>${s*prices.stringing} RON</span></div>
+    <div class="fin-row"><span>Grip (${g} × 25 RON)</span><span>${g*prices.grip} RON</span></div>
+    <div class="fin-row"><span>Pickup/Delivery (${p} × 5 RON)</span><span>${p*prices.pickup} RON</span></div>
+    <div class="fin-row" style="font-weight:700;color:var(--lime)"><span>Total</span><span>${total} RON</span></div>
+  `;
+}
+document.getElementById('calcFinance').addEventListener('click', calcFinance);
+calcFinance();
+</script>
+</body>
+</html>
